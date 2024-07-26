@@ -1,9 +1,14 @@
 plugins {
     id 'groovy'
+    id 'application'
 }
 
 group = 'br.com.bels'
 version = '1.0-SNAPSHOT'
+
+application {
+    mainClass = 'com.kuuhaku.Main'
+}
 
 repositories {
     mavenCentral()
