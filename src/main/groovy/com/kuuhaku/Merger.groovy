@@ -16,7 +16,7 @@ class Merger {
 			it.eachLine {
 				def (word, act) = it.split(",") as List<String>
 
-				word = StringUtils.stripAccents(word.split(" ")[1]).toLowerCase()
+				word = StringUtils.stripAccents(word.split(" ").last()).toLowerCase()
 				if (word =~ /\W/ || word.length() < 3) return
 
 				groups.computeIfAbsent(act, k -> []) << word
