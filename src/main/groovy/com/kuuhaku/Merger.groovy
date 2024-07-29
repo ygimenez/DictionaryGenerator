@@ -7,7 +7,7 @@ class Merger {
 		def dir = new File("dicts_$locale")
 		if (!dir.exists() || !dir.directory) return
 
-		def dict = new File("dict_full_$locale.txt")
+		def dict = new File("dict_full_${locale}.txt")
 		if (!dict.exists() || !dict.file) dict.createNewFile()
 
 		def groups = [:] as Map<String, List<String>>
