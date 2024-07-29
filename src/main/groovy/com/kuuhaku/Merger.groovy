@@ -14,12 +14,12 @@ class Merger {
 		def words = [] as Set<String>
 		dir.listFiles().each {
 			it.eachLine {
-				def (word, act) = it.split(",") as List<String>
+				def (word, act) = it.trim().split(",") as List<String>
 
 				word = StringUtils.stripAccents(word.split(" ").last()).toLowerCase()
 				if (word =~ /\W/ || word.length() < 3) return
 
-				groups.computeIfAbsent(act, k -> []) << word
+				groups.computeIfAbsent(act ?: "lemma", k -> []) << word
 			}
 
 			def lemma = groups["lemma"]
