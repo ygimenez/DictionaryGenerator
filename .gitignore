@@ -40,3 +40,8 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+/dicts/
+/dicts_pt/
+/dicts_en/
+dict_full.txt

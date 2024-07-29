@@ -3,8 +3,8 @@ package com.kuuhaku
 import org.apache.commons.lang3.StringUtils
 
 class Merger {
-	Merger() {
-		def dir = new File("dicts")
+	Merger(String locale) {
+		def dir = new File("dicts_$locale")
 		if (!dir.exists() || !dir.directory) return
 
 		def dict = new File("dict_full.txt")
@@ -17,7 +17,7 @@ class Merger {
 				def (word, act) = it.split(",") as List<String>
 
 				word = StringUtils.stripAccents(word.split(" ")[1]).toLowerCase()
-				if (word.contains("-") || word.length() < 3) return
+				if (word =~ /\W/ || word.length() < 3) return
 
 				groups.computeIfAbsent(act, k -> []) << word
 			}
